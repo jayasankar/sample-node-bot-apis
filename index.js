@@ -29,17 +29,11 @@ app.post('/post/messages', function(request, response) {
   //response.render('pages/index');
   console.log("Testing.............");
   console.log(request.body);
-  response.set('Content-Type', 'application/json');
+  response.set('Content-type', 'application/json');
   response.send(JSON.stringify({
-    fulfillment: {
       speech: "Hey, how can I help you",
-      messages: [
-        {
-          type: 0,
-          speech: "Hey, how can I help you"
-        }
-      ]
-    }}
+      displayText: "Hey, how can I help you"
+    }
   ));
   
 });
