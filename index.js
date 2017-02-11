@@ -16,7 +16,12 @@ app.get('/webhook', function(request, response) {
 
 app.get('/messages', function(request, response) {
   //response.render('pages/index');
-  response.send('I get the messages');
+  if (request.query['hub.verify_token'] === 'YOUR_VERIFY_TOKEN') {
+      res.send(request.query['hub.challenge']);
+    } else {
+      response.send('I get the messages');
+    }
+  
 });
 
 app.listen(app.get('port'), function() {
