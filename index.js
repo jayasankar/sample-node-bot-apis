@@ -16,7 +16,8 @@ app.get('/webhook', function(request, response) {
 
 app.get('/messages', function(request, response) {
   //response.render('pages/index');
-  if (request.query['hub.verify_token'] === 'YOUR_VERIFY_TOKEN') {
+  console.log()
+  if (request.query['hub.verify_token'] === 'mybot_mybot_mybot') {
       response.send(request.query['hub.challenge']);
     } else {
       response.send('I get the messages');
