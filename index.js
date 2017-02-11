@@ -26,15 +26,15 @@ app.post('/post/messages', function(request, response) {
   console.log();
   response.set('Content-Type', 'application/json');
   response.send(JSON.stringify({
-    fulfillment : {
-      speech: "I got no clue...",
-      messages : [
+    fulfillment: {
+      speech: "Hey, how can I help you",
+      messages: [
         {
           type: 0,
-          speech : "I got no clue..."
+          speech: "Hey, how can I help you"
         }
       ]
-  }}
+    }}
   ));
   
 });
