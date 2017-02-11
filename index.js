@@ -16,6 +16,14 @@ app.get('/webhook', function(request, response) {
 
 app.get('/messages', function(request, response) {
   //response.render('pages/index');
+  console.log();
+  response.send('I get the messages');
+  
+});
+
+app.get('/post/messages', function(request, response) {
+  //response.render('pages/index');
+  console.log();
   response.send('I get the messages');
   
 });
