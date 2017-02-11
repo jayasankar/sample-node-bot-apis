@@ -27,9 +27,13 @@ app.post('/post/messages', function(request, response) {
   response.set('Content-Type', 'application/json');
   response.send(JSON.stringify({
     fulfillment : {
-    speech: "I got no clue...",
-    source: "jay-sample-bot",
-    displayText: "I got no clue..."
+      speech: "I got no clue...",
+      messages : [
+        {
+          type: 0,
+          speech : "I got no clue..."
+        }
+      ]
   }}
   ));
   
