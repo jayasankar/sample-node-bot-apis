@@ -24,6 +24,7 @@ app.get('/messages', function(request, response) {
 app.post('/post/messages', function(request, response) {
   //response.render('pages/index');
   console.log();
+  response.set('Content-Type', 'application/json');
   response.send(JSON.stringify({
     fulfillment : {
     speech: "I got no clue...",
