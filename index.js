@@ -24,7 +24,13 @@ app.get('/messages', function(request, response) {
 app.post('/post/messages', function(request, response) {
   //response.render('pages/index');
   console.log();
-  response.send('I get the messages');
+  response.send(JSON.stringify({
+    fulfillment : {
+    speech: "I got no clue...",
+    source: "jay-sample-bot",
+    displayText: "I got no clue..."
+  }}
+  ));
   
 });
 
