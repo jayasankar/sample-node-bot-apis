@@ -9,9 +9,14 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
+app.get('/webhook', function(request, response) {
   //response.render('pages/index');
   response.send('Hello World !!!');
+});
+
+app.get('/messages', function(request, response) {
+  //response.render('pages/index');
+  response.send('I get the messages');
 });
 
 app.listen(app.get('port'), function() {
