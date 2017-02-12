@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
@@ -28,7 +29,13 @@ app.get('/messages', function(request, response) {
 app.post('/post/messages', function(request, response) {
   //response.render('pages/index');
   console.log("Testing.............");
-  console.log(request.body);
+  console.log(request.body);  
+  // var responseString = processRequest(JSON.parse(request.body));
+  // console.log("\n\nThe action defined is -- ");
+  console.log(request.body.result.action);
+  console.log(request.body.result.parameters);
+  processRequest(request.body.result.action, request.body.result.parameters);
+
   response.set('Content-type', 'application/json');
   response.send(JSON.stringify({
       speech: "Hey, how can I help you",
@@ -37,6 +44,19 @@ app.post('/post/messages', function(request, response) {
   ));
   
 });
+
+function processRequest(action, parameters) {  
+
+  if (action == 'get-inspirations') {
+    console.log("Invoking the inspirations module");
+  }
+
+  for (key in parameters) {
+    console.log(key);
+    console.log(parameters[key])
+  }
+
+}
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
